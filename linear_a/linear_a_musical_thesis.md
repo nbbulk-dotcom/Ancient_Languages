@@ -4,7 +4,7 @@
 
 ---
 
-**Authors:** Manus AI Research Team  
+**Authors:** Nicolas of the Family Brett Research Team  
 **Date:** September 22, 2025  
 **Institution:** Independent Research  
 **Classification:** Groundbreaking Archaeological Linguistics  
