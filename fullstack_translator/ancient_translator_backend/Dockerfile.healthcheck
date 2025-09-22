@@ -1,0 +1,15 @@
+#!/bin/bash
+# Health check script for Docker container with enhanced validation
+response=$(curl -fsS http://localhost:8000/healthz 2>/dev/null)
+if [ $? -eq 0 ]; then
+    # Check if response contains required fields
+    if echo "$response" | grep -q '"status"' && echo "$response" | grep -q '"commit"'; then
+        exit 0
+    else
+        echo "Health check response missing required fields"
+        exit 1
+    fi
+else
+    echo "Health check request failed"
+    exit 1
+fi

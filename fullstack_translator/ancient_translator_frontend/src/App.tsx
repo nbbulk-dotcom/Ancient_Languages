@@ -67,7 +67,7 @@ function App() {
   const [artifactResult, setArtifactResult] = useState<ArtifactResponse | null>(null);
   const [isArtifactLoading, setIsArtifactLoading] = useState(false);
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://app-onwlswoz.fly.dev';
+  const API_BASE_URL = import.meta.env.VITE_API_URL || process.env.REACT_APP_API_URL || 'https://app-onwlswoz.fly.dev';
 
   React.useEffect(() => {
     fetchScriptsInfo();
@@ -75,7 +75,7 @@ function App() {
 
   const fetchScriptsInfo = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/scripts/info`);
+      const response = await fetch(`${API_BASE_URL}/scripts/info`);
       const data = await response.json();
       setScriptsInfo(data);
     } catch (err) {
@@ -93,7 +93,7 @@ function App() {
     setError(null);
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/translate/text`, {
+      const response = await fetch(`${API_BASE_URL}/translate/text`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ function App() {
       formData.append('file', selectedFile);
       formData.append('target_language', targetLanguage);
 
-      const response = await fetch(`${API_BASE_URL}/api/translate/image`, {
+      const response = await fetch(`${API_BASE_URL}/translate/image`, {
         method: 'POST',
         body: formData,
       });
@@ -182,7 +182,7 @@ function App() {
       formData.append('file', selectedFile);
       formData.append('script_type', selectedScript);
 
-      const response = await fetch(`${API_BASE_URL}/api/ocr/convert`, {
+      const response = await fetch(`${API_BASE_URL}/ocr/convert`, {
         method: 'POST',
         body: formData,
       });
@@ -214,7 +214,7 @@ function App() {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      const response = await fetch(`${API_BASE_URL}/api/artifact/process`, {
+      const response = await fetch(`${API_BASE_URL}/artifact/process`, {
         method: 'POST',
         body: formData,
       });

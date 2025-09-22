@@ -6,6 +6,9 @@ import io
 import base64
 import json
 import traceback
+import sys
+import subprocess
+from datetime import datetime
 from PIL import Image
 import pytesseract
 import os
@@ -16,6 +19,19 @@ if os.path.exists('/usr/bin/tesseract'):
     pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 elif os.path.exists('/usr/local/bin/tesseract'):
     pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'tools'))
+try:
+    from provenance import make_provenance
+except ImportError:
+    def make_provenance(inputs, note=""):
+        return {
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "commit_sha": "unknown",
+            "inputs": inputs,
+            "note": note,
+            "method": "Brett Method frequency analysis with cultural modifiers"
+        }
 
 from .analysis_tools.linear_a_frequency_calculator import LinearAFrequencyCalculator
 from .analysis_tools.khitan_frequency_analyzer import KhitanFrequencyAnalyzer
@@ -68,6 +84,7 @@ class TranslationResponse(BaseModel):
     cultural_context: str
     narrative: Optional[str] = None
     audio_sequence: Optional[List[Dict[str, Any]]] = None
+    provenance: Optional[Dict[str, Any]] = None
 
 class ScriptInfo(BaseModel):
     name: str
@@ -95,7 +112,16 @@ class ArtifactResponse(BaseModel):
 
 @app.get("/healthz")
 async def healthz():
-    return {"status": "ok"}
+    try:
+        commit_sha = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode().strip()
+    except:
+        commit_sha = "unknown"
+    
+    return {
+        "status": "healthy", 
+        "timestamp": datetime.now().isoformat(),
+        "commit": commit_sha
+    }
 
 @app.get("/")
 def read_root():
@@ -158,6 +184,12 @@ async def translate_text(request: TextTranslationRequest):
         else:
             raise HTTPException(status_code=400, detail=f"Unsupported script type: {script_type}")
         
+        provenance = make_provenance(
+            inputs=[{"type": "text", "script": request.script_type, "text": request.text}],
+            note="Text translation using Brett Method frequency analysis"
+        )
+        result.provenance = provenance
+        
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Translation error: {str(e)}")
@@ -206,6 +238,12 @@ async def translate_image(file: UploadFile = File(...), target_language: str = "
             "step": "Image Processing",
             "description": f"Processed ancient script image using OCR. Raw extraction: '{extracted_text.strip()[:50]}...' → Interpreted as: '{cleaned_text}'"
         })
+        
+        provenance = make_provenance(
+            inputs=[{"type": "image", "filename": file.filename, "size": len(image_data)}],
+            note="Image translation using OCR and Brett Method frequency analysis"
+        )
+        result.provenance = provenance
         
         return result
         

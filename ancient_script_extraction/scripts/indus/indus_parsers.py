@@ -6,14 +6,15 @@ from datetime import datetime
 import re
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'tools'))
 
 from utils.pdf_parser import extract_text_from_pdf
+from robust_get import robust_get
 
 def parse_harappa_archive(url):
     parsed = []
     try:
-        response = requests.get(url, timeout=30)
-        response.raise_for_status()
+        response = robust_get(url, timeout=30, retries=3, allow_empty=False)
         soup = BeautifulSoup(response.content, 'html.parser')
         
         script_elements = soup.find_all(['div', 'span', 'p'], class_=re.compile(r'.*script.*|.*glyph.*|.*sign.*', re.I))
