@@ -1,0 +1,28 @@
+output_dir: ./output
+rate_limits:
+  sigla.phis.me: 1
+  cdli.ucla.edu: 1
+expected_counts:
+  LinearA: 87
+  KhitanLargeScript: 500
+  ProtoElamite: 1000
+  IndusValleyScript: 400
+sources:
+  LinearA:
+    - name: SigLA
+      api: https://sigla.phis.me/api/
+    - name: GORILA
+      pdf: ./data/gorila_transcriptions.pdf
+  KhitanLargeScript:
+    - name: Unicode
+      block: U+18B00–U+18CFF
+    - name: BabelStone
+      url: https://babelstone.co.uk/Khitan/
+  ProtoElamite:
+    - name: CDLI
+      api: https://cdli.ucla.edu/api/
+  IndusValleyScript:
+    - name: Harappa Archive
+      url: https://www.harappa.com/script
+    - name: Mahadevan Concordance
+      pdf: ./data/mahadevan_concordance.pdf

@@ -1,0 +1,12 @@
+requests
+beautifulsoup4
+pdfplumber
+pillow
+fonttools
+tqdm
+numpy
+opencv-python
+scipy
+pytesseract
+pyyaml
+imagehash

@@ -1,0 +1,12 @@
+{
+  "passed": false,
+  "details": {
+    "glyph_count": 0,
+    "expected_minimum": 400,
+    "h_code_coverage_pct": 0,
+    "primary_source_present": false
+  },
+  "recommendations": [
+    "Add more inscriptions from Harappa Archive and other IVC sites"
+  ]
+}

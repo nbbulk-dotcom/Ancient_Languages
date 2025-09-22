@@ -1,0 +1,65 @@
+name: Ancient Script Extraction
+
+on:
+  push:
+    branches: [main, devin/*]
+  workflow_dispatch:
+
+jobs:
+  extract-linear-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          cd ancient_script_extraction
+          pip install -r requirements.txt
+
+      - name: Run Linear A extractor
+        run: |
+          cd ancient_script_extraction
+          mkdir -p output
+          python scripts/linear_a/extractor_linear_a.py --config config.yaml --outdir output
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: linear-a-output
+          path: ancient_script_extraction/output/
+
+  extract-all-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          cd ancient_script_extraction
+          pip install -r requirements.txt
+
+      - name: Run all extractors
+        run: |
+          cd ancient_script_extraction
+          mkdir -p output
+          python main.py
+
+      - name: Upload all artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: all-scripts-output
+          path: ancient_script_extraction/output/

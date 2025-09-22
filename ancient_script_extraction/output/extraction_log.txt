@@ -1,0 +1,13 @@
+{"timestamp": "2025-09-22T17:38:29.697871", "message": "Starting Linear A extraction"}
+{"timestamp": "2025-09-22T17:38:31.188396", "message": "Failed to fetch from SigLA API: 404 Client Error: Not Found for url: https://sigla.phis.me/api/signs"}
+{"timestamp": "2025-09-22T17:38:31.189919", "message": "Linear A extraction complete"}
+{"timestamp": "2025-09-22T17:38:31.190151", "message": "Starting Khitan Large Script extraction"}
+{"timestamp": "2025-09-22T17:38:31.193690", "message": "Extracted 512 glyphs from Unicode block"}
+{"timestamp": "2025-09-22T17:38:31.760793", "message": "Extracted 0 glyphs from BabelStone"}
+{"timestamp": "2025-09-22T17:38:31.776211", "message": "Khitan Large Script extraction complete"}
+{"timestamp": "2025-09-22T17:38:31.776629", "message": "Starting Proto-Elamite extraction"}
+{"timestamp": "2025-09-22T17:38:34.948048", "message": "CDLI API extraction failed: Expecting value: line 1 column 1 (char 0)"}
+{"timestamp": "2025-09-22T17:38:34.948458", "message": "Proto-Elamite extraction complete"}
+{"timestamp": "2025-09-22T17:38:34.950814", "message": "Starting Indus Valley Script extraction"}
+{"timestamp": "2025-09-22T17:38:35.030191", "message": "Extracted 0 glyphs from Harappa Archive"}
+{"timestamp": "2025-09-22T17:38:35.030589", "message": "Indus Valley Script extraction complete"}
