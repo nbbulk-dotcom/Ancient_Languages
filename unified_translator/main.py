@@ -271,4 +271,4 @@ async def health_check():
 if __name__ == "__main__":
     os.makedirs("temp", exist_ok=True)
     os.makedirs("frontend/public/downloads", exist_ok=True)
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

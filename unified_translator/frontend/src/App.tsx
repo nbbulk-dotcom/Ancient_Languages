@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import PublicUseNotice from './src/components/PublicUseNotice';
-import AcademicDownloads from './src/components/AcademicDownloads';
-import CitationGuide from './src/components/CitationGuide';
+import PublicUseNotice from './components/PublicUseNotice';
+import AcademicDownloads from './components/AcademicDownloads';
+import CitationGuide from './components/CitationGuide';
 
 interface OCRResult {
   extracted_text: string;
