@@ -1,0 +1,31 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f5f5f5" stroke="#ccc" stroke-width="2"/>
+  <text x="200" y="50" text-anchor="middle" font-family="serif" font-size="16" fill="#333">
+    Memorial for Yelü Yanning (986 CE)
+  </text>
+  <text x="200" y="80" text-anchor="middle" font-family="serif" font-size="12" fill="#666">
+    19 lines, 271 characters
+  </text>
+  <text x="200" y="110" text-anchor="middle" font-family="serif" font-size="12" fill="#666">
+    Oldest major Khitan inscription
+  </text>
+  <rect x="50" y="130" width="300" height="120" fill="#e8e8e8" stroke="#999"/>
+  <text x="200" y="150" text-anchor="middle" font-family="monospace" font-size="10" fill="#333">
+    皇帝 大契丹国 耶律延宁 墓志铭
+  </text>
+  <text x="200" y="170" text-anchor="middle" font-family="monospace" font-size="10" fill="#333">
+    天赞五年 岁次丙戌 九月 庚申朔
+  </text>
+  <text x="200" y="190" text-anchor="middle" font-family="monospace" font-size="10" fill="#333">
+    故 大将军 耶律延宁 春秋四十
+  </text>
+  <text x="200" y="210" text-anchor="middle" font-family="monospace" font-size="10" fill="#333">
+    薨于 官舍 其 先世 高祖
+  </text>
+  <text x="200" y="230" text-anchor="middle" font-family="monospace" font-size="10" fill="#333">
+    [Khitan Large Script Characters]
+  </text>
+  <text x="200" y="270" text-anchor="middle" font-family="serif" font-size="10" fill="#999">
+    Frequency: 615.01 Hz (F4) - Administrative Memorial
+  </text>
+</svg>

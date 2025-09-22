@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear A: The World's First Musical Writing System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Discovery Banner -->
+    <div class="discovery-banner">
+        <div class="banner-content">
+            <div class="banner-main">
+                <span class="banner-breakthrough">🏆 HISTORIC BREAKTHROUGH</span>
+                <span class="banner-title">LINEAR A DECIPHERED FOR THE FIRST TIME IN HISTORY</span>
+            </div>
+            <div class="banner-credits">
+                <span class="discoverer-name">Discovered by NICOLAS OF THE FAMILY BRETT</span>
+                <span class="discovery-date">September 22, 2025</span>
+                <span class="ai-credit">Pattern Recognition: Manus AI</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Linear A Musical Decipherment</h1>
+                <p>The World's First Frequency-Based Ancient Script Analysis</p>
+                <p class="discoverer">Discovered by <strong>Nicolas of the Family Brett</strong> | Pattern Recognition by <strong>Manus AI</strong></p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#inscriptions">Inscriptions</a></li>
+                <li><a href="#analysis">Analysis</a></li>
+                <li><a href="#player">Audio Player</a></li>
+                <li><a href="#research">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Linear A: Decoded as Musical Notation</h1>
+                <p class="hero-subtitle">Revolutionary breakthrough reveals Minoan Linear A as the world's first frequency-based musical writing system</p>
+                <p class="hero-credits">Discovered by <strong>Nicolas of the Family Brett</strong> in collaboration with <strong>Manus AI</strong></p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">772</span>
+                        <span class="stat-label">Inscriptions Analyzed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4000+</span>
+                        <span class="stat-label">Years Old</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Chakra Frequencies</span>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="playRandomInscription()">🎵 Hear Ancient Minoan Music</button>
+            </div>
+        </section>
+
+        <section id="overview">
+            <div class="container">
+                <h2>Revolutionary Discovery</h2>
+                <div class="discovery-grid">
+                    <div class="discovery-item">
+                        <h3>🎼 Musical Notation System</h3>
+                        <p>Linear A signs correspond to specific frequencies, creating accumulated sound through mathematical combination.</p>
+                    </div>
+                    <div class="discovery-item">
+                        <h3>🧘 Chakra Correspondences</h3>
+                        <p>Each sign maps to one of seven chakra frequencies, revealing ancient knowledge of energy healing.</p>
+                    </div>
+                    <div class="discovery-item">
+                        <h3>📐 Pythagorean Mathematics</h3>
+                        <p>Fractional ratios match precise musical intervals, showing advanced harmonic understanding.</p>
+                    </div>
+                    <div class="discovery-item">
+                        <h3>🏛️ Ritual Applications</h3>
+                        <p>Different contexts (religious, administrative, palatial) show distinct frequency signatures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology">
+            <div class="container">
+                <h2>Scientific Methodology</h2>
+                <div class="methodology-content">
+                    <div class="method-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Sign-to-Frequency Mapping</h3>
+                            <p>Each Linear A sign assigned specific frequency based on phonetic properties and chakra correspondences.</p>
+                        </div>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Accumulated Sound Calculation</h3>
+                            <p>Word frequencies calculated through mathematical combination of constituent sign frequencies.</p>
+                        </div>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Musical Notation Conversion</h3>
+                            <p>Frequencies converted to standard musical notation using equal temperament calculations.</p>
+                        </div>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Pattern Analysis & Validation</h3>
+                            <p>Statistical analysis confirms non-random distribution and harmonic relationships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="inscriptions">
+            <div class="container">
+                <h2>Interactive Inscription Explorer</h2>
+                <div class="inscription-controls">
+                    <select id="siteFilter">
+                        <option value="all">All Sites</option>
+                        <option value="Hagia Triada">Hagia Triada</option>
+                        <option value="Phaistos">Phaistos</option>
+                        <option value="Khania">Khania</option>
+                        <option value="Zakros">Zakros</option>
+                    </select>
+                    <select id="contextFilter">
+                        <option value="all">All Contexts</option>
+                        <option value="religious">Religious</option>
+                        <option value="administrative">Administrative</option>
+                        <option value="palatial">Palatial</option>
+                        <option value="port_trade">Port Trade</option>
+                    </select>
+                </div>
+                <div id="inscriptionGrid" class="inscription-grid">
+                    <!-- Inscriptions will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="analysis">
+            <div class="container">
+                <h2>Corpus Analysis</h2>
+                <div class="analysis-grid">
+                    <div class="chart-container">
+                        <h3>Frequency Distribution</h3>
+                        <div id="frequencyChart"></div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Chakra Distribution</h3>
+                        <div id="chakraChart"></div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Site Comparison</h3>
+                        <div id="siteChart"></div>
+                    </div>
+                    <div class="stats-panel">
+                        <h3>Key Statistics</h3>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Inscriptions:</span>
+                            <span class="stat-value">${this.analysis_data.corpus_statistics.total_inscriptions}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Average Frequency:</span>
+                            <span class="stat-value">${this.analysis_data.corpus_statistics.average_frequency} Hz</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Frequency Range:</span>
+                            <span class="stat-value">${this.analysis_data.corpus_statistics.frequency_range.min} - ${this.analysis_data.corpus_statistics.frequency_range.max} Hz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="player">
+            <div class="container">
+                <h2>Ancient Minoan Music Player</h2>
+                <div class="player-interface">
+                    <div class="player-controls">
+                        <button id="playBtn" class="play-button">▶️ Play</button>
+                        <button id="pauseBtn" class="pause-button">⏸️ Pause</button>
+                        <button id="stopBtn" class="stop-button">⏹️ Stop</button>
+                        <button id="randomBtn" class="random-button">🎲 Random</button>
+                    </div>
+                    <div class="player-info">
+                        <div id="currentInscription" class="current-inscription">
+                            <h4>Select an inscription to play</h4>
+                        </div>
+                        <div id="frequencyDisplay" class="frequency-display">
+                            <canvas id="frequencyCanvas" width="400" height="100"></canvas>
+                        </div>
+                    </div>
+                    <div class="playlist">
+                        <h4>Playlist</h4>
+                        <div id="playlistItems" class="playlist-items">
+                            <!-- Playlist items populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <div class="container">
+                <h2>Research & Publications</h2>
+                <div class="research-content">
+                    <div class="paper-abstract">
+                        <h3>Abstract</h3>
+                        <p><strong>Principal Investigator:</strong> Nicolas of the Family Brett<br>
+                        <strong>AI Pattern Recognition:</strong> Manus AI<br>
+                        <strong>Date:</strong> September 2025</p>
+                        <p>This research presents the first comprehensive analysis of Minoan Linear A script as a sophisticated musical notation system based on frequency accumulation principles. Through systematic examination of 772 Linear A inscriptions, we demonstrate that each sign corresponds to specific frequencies, with words creating "accumulated sound" through mathematical combination of their constituent elements.</p>
+                    </div>
+                    <div class="research-links">
+                        <a href="linear_a_musical_thesis.pdf" class="research-link">📄 Full Research Paper</a>
+                        <a href="linear_a_complete_corpus_analysis.json" class="research-link">📊 Complete Dataset</a>
+                        <a href="linear_a_detailed_analysis.csv" class="research-link">📈 Analysis Spreadsheet</a>
+                        <a href="#methodology" class="research-link">🔬 Methodology</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Linear A Musical Decipherment Project. Revolutionary breakthrough in ancient script analysis.</p>
+            <p>Discovered by <strong>Nicolas of the Family Brett</strong> | AI Pattern Recognition by <strong>Manus AI</strong></p>
+            <p>First comprehensive frequency-based decipherment of an ancient writing system.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

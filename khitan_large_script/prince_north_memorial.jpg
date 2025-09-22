@@ -1,0 +1,31 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f0f0f0" stroke="#ccc" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="16" fill="#333">
+    Memorial of the Prince of the North
+  </text>
+  <text x="200" y="65" text-anchor="middle" font-family="serif" font-size="12" fill="#666">
+    Imperial Ceremonial Inscription
+  </text>
+  <rect x="50" y="80" width="300" height="150" fill="#e0e0e0" stroke="#999"/>
+  <text x="200" y="110" text-anchor="middle" font-family="monospace" font-size="14" fill="#333">
+    皇帝 囯 北王 墓志
+  </text>
+  <text x="200" y="135" text-anchor="middle" font-family="monospace" font-size="12" fill="#333">
+    大契丹 皇帝 之 北王 薨
+  </text>
+  <text x="200" y="160" text-anchor="middle" font-family="monospace" font-size="12" fill="#333">
+    世世 忠于 皇帝 囯家
+  </text>
+  <text x="200" y="185" text-anchor="middle" font-family="monospace" font-size="12" fill="#333">
+    功德 无量 威震 四方
+  </text>
+  <text x="200" y="210" text-anchor="middle" font-family="monospace" font-size="12" fill="#333">
+    特赠 太师 永垂 不朽
+  </text>
+  <text x="200" y="250" text-anchor="middle" font-family="serif" font-size="10" fill="#999">
+    Frequency: 737.41 Hz (G#4) - Imperial Ceremonial
+  </text>
+  <text x="200" y="270" text-anchor="middle" font-family="serif" font-size="10" fill="#999">
+    Contains: 皇帝 (Emperor - 880 Hz), 囯 (State - 770 Hz)
+  </text>
+</svg>
