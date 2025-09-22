@@ -88,6 +88,8 @@ function App() {
       }
 
       const result = await response.json();
+      console.log('Translation response:', result);
+      console.log('Narrative field:', result.narrative);
       setTranslationResult(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Translation failed');
@@ -120,6 +122,8 @@ function App() {
       }
 
       const result = await response.json();
+      console.log('Translation response:', result);
+      console.log('Narrative field:', result.narrative);
       setTranslationResult(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Image translation failed');
@@ -354,7 +358,7 @@ function App() {
                     </div>
                   </div>
                   
-                  {translationResult.narrative && (
+                  {translationResult?.narrative && (
                     <div>
                       <h4 className="font-semibold mb-2">📖 Ancient Narrative</h4>
                       <p className="text-sm bg-green-50 p-4 rounded-lg border-l-4 border-green-400 leading-relaxed">
