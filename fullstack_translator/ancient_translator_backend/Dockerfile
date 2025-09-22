@@ -1,6 +1,6 @@
 FROM python:3.12.7-slim
 
-# Install system dependencies including tesseract-ocr
+# Install system dependencies including tesseract-ocr with additional debugging
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     tesseract-ocr-eng \
@@ -10,11 +10,14 @@ RUN apt-get update && apt-get install -y \
     libxext6 \
     libxrender-dev \
     libgomp1 \
+    which \
     && rm -rf /var/lib/apt/lists/*
 
-# Verify tesseract installation and set PATH
-RUN /usr/bin/tesseract --version && \
-    ln -sf /usr/bin/tesseract /usr/local/bin/tesseract
+# Verify tesseract installation with comprehensive PATH setup
+RUN which tesseract && \
+    tesseract --version && \
+    ln -sf /usr/bin/tesseract /usr/local/bin/tesseract && \
+    echo "export PATH=/usr/bin:/usr/local/bin:$PATH" >> /etc/environment
 
 # Set working directory with full path
 WORKDIR /app
