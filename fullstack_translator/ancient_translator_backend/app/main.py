@@ -8,8 +8,14 @@ import json
 import traceback
 from PIL import Image
 import pytesseract
+import os
 # import cv2
 # import numpy as np
+
+if os.path.exists('/usr/bin/tesseract'):
+    pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+elif os.path.exists('/usr/local/bin/tesseract'):
+    pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
 
 from .analysis_tools.linear_a_frequency_calculator import LinearAFrequencyCalculator
 from .analysis_tools.khitan_frequency_analyzer import KhitanFrequencyAnalyzer
