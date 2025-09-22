@@ -1,0 +1,25 @@
+# Ancient Script Universal Translator - Production Dependencies
+# Pinned versions for reproducible builds
+
+# FastAPI and server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0.post1
+python-multipart==0.0.6
+
+# OCR and image processing
+pytesseract==0.3.10
+easyocr==1.7.0
+opencv-python-headless==4.8.1.78
+Pillow==10.1.0
+
+# Scientific computing
+numpy==1.26.2
+scipy==1.11.4
+
+# HTTP and utilities
+requests==2.31.0
+pydantic==2.5.0
+
+# Additional dependencies for enhanced OCR
+scikit-image==0.22.0
+matplotlib==3.8.2
