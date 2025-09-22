@@ -1,10 +1,24 @@
 import pdfplumber
+import io
+from .logger import log_event
+
+def extract_text_from_pdf_bytes(pdf_bytes):
+    try:
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            pages = [p.extract_text() or "" for p in pdf.pages]
+            return "\n".join(pages)
+    except Exception as e:
+        log_event(f"PDF parse failed: {e}", level="ERROR")
+        raise
+
+def extract_text_from_pdf_path(path):
+    try:
+        with pdfplumber.open(path) as pdf:
+            pages = [p.extract_text() or "" for p in pdf.pages]
+            return "\n".join(pages)
+    except Exception as e:
+        log_event(f"PDF parse failed: {path} - {e}", level="ERROR")
+        raise
 
 def extract_text_from_pdf(pdf_path):
-    text = ""
-    with pdfplumber.open(pdf_path) as pdf:
-        for page in pdf.pages:
-            page_text = page.extract_text()
-            if page_text:
-                text += page_text + "\n"
-    return text
+    return extract_text_from_pdf_path(pdf_path)
