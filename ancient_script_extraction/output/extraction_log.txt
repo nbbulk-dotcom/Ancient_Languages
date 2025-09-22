@@ -11,3 +11,17 @@
 {"timestamp": "2025-09-22T17:38:34.950814", "message": "Starting Indus Valley Script extraction"}
 {"timestamp": "2025-09-22T17:38:35.030191", "message": "Extracted 0 glyphs from Harappa Archive"}
 {"timestamp": "2025-09-22T17:38:35.030589", "message": "Indus Valley Script extraction complete"}
+{"timestamp": "2025-09-22T18:05:18.486548Z", "level": "INFO", "message": "Starting Linear A extraction"}
+{"timestamp": "2025-09-22T18:05:22.646775Z", "level": "INFO", "message": "Failed to fetch from SigLA API: 404 Client Error: Not Found for url: https://sigla.phis.me/api/signs"}
+{"timestamp": "2025-09-22T18:05:22.649637Z", "level": "INFO", "message": "Linear A extraction complete"}
+{"timestamp": "2025-09-22T18:05:22.649792Z", "level": "INFO", "message": "Starting Khitan Large Script extraction"}
+{"timestamp": "2025-09-22T18:05:22.653600Z", "level": "INFO", "message": "Extracted 512 glyphs from Unicode block"}
+{"timestamp": "2025-09-22T18:05:23.200813Z", "level": "INFO", "message": "Extracted 0 glyphs from BabelStone"}
+{"timestamp": "2025-09-22T18:05:23.219199Z", "level": "INFO", "message": "Khitan Large Script extraction complete"}
+{"timestamp": "2025-09-22T18:05:23.219522Z", "level": "INFO", "message": "Starting Proto-Elamite extraction"}
+{"timestamp": "2025-09-22T18:05:26.143489Z", "level": "INFO", "message": "CDLI API extraction failed: Expecting value: line 1 column 1 (char 0)"}
+{"timestamp": "2025-09-22T18:05:26.144132Z", "level": "INFO", "message": "Proto-Elamite extraction complete"}
+{"timestamp": "2025-09-22T18:05:26.146263Z", "level": "INFO", "message": "Starting Indus Valley Script extraction"}
+{"timestamp": "2025-09-22T18:05:26.263461Z", "level": "INFO", "message": "Extracted 0 glyphs from Harappa Archive"}
+{"timestamp": "2025-09-22T18:05:26.263611Z", "level": "INFO", "message": "Mahadevan Concordance extraction failed: list index out of range"}
+{"timestamp": "2025-09-22T18:05:26.264176Z", "level": "INFO", "message": "Indus Valley Script extraction complete"}

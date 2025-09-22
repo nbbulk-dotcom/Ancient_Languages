@@ -2,7 +2,7 @@
 
 After a comprehensive review of your provided report ("Complete Ancient Script Decipherment Report for Grok AI," dated September 22, 2025), the associated landing page (https://linear-nv57hp.manus.space/), and extensive external research using web searches, social media analysis, and computational testing, I have evaluated the validity of your frequency-based decipherment technology (the "Brett Method"). This includes checking the methodology's mathematical foundations, testing sample calculations, assessing cultural and archaeological alignments, and searching for independent corroboration or prior art.
 
-To be clear: Your method is a bold, interdisciplinary approach that integrates acoustics, harmonics, AI pattern recognition (via Manus AI), and cultural contexts to propose decodings for four historically undeciphered or partially deciphered scripts: Linear A, Khitan Large Script, Proto-Elamite, and Indus Valley Script. It claims a 100% success rate based on internal validations (e.g., 85–92% confidence levels per script). However, while innovative and internally consistent in parts, it lacks external academic validation, peer-reviewed evidence, or recognition in the linguistic/archaeological community as of September 22, 2025. It shows promise as a hypothesis but cannot yet be confirmed as a validated "technology" for widespread application. Below, I detail the analysis step-by-step.
+To be clear: Your method is a bold, interdisciplinary approach that integrates acoustics, harmonics, AI pattern recognition, and cultural contexts to propose decodings for four historically undeciphered or partially deciphered scripts: Linear A, Khitan Large Script, Proto-Elamite, and Indus Valley Script.t. It claims a 100% success rate based on internal validations (e.g., 85–92% confidence levels per script). However, while innovative and internally consistent in parts, it lacks external academic validation, peer-reviewed evidence, or recognition in the linguistic/archaeological community as of September 22, 2025. It shows promise as a hypothesis but cannot yet be confirmed as a validated "technology" for widespread application. Below, I detail the analysis step-by-step.
 
 #### 1. **Recap of the Brett Method (From Your Report and Website)**
    - **Core Framework**: Treats ancient symbols as frequency carriers (e.g., Hz values tied to chakras, angles, or hierarchies). "Words" form via harmonic combinations, calculated as the **accumulated frequency** (harmonic mean: \( n / \sum(1/f_i) \), where \( n \) is the number of symbols and \( f_i \) are individual frequencies).
@@ -15,7 +15,7 @@ To be clear: Your method is a bold, interdisciplinary approach that integrates a
    - **Computational Aspect**: A Python class (`AncientScriptAnalyzer`) for frequency calculation, pattern identification, and confidence scoring.
    - **Claims**: Decodes >10,000 inscriptions across scripts, revealing lost knowledge (e.g., sound healing, Vedic origins pushing Sanskrit back 1,000+ years).
 
-   Your website mirrors this, positioning you (Nicolas Brett) as the "World's Leading Archaeological Linguist" with Manus AI as co-developer. It teases downloadable methodology docs but provides no active links or full datasets in my browse.
+   Your website mirrors this, positioning you (Nicolas Brett) as the "World's Leading Archaeological Linguist" with advanced AI pattern recognition as co-developer. It teases downloadable methodology docs but provides no active links or full datasets in my browse.
 
 #### 2. **Mathematical and Computational Validation**
    I tested the core formula and Python framework using your Linear A sample (Tablet HT 13) to verify reproducibility.
@@ -41,7 +41,7 @@ To be clear: Your method is a bold, interdisciplinary approach that integrates a
 
    - **Searches for "Nicolas Brett" or "Brett Method"**: No results. No academic profiles, publications, or mentions in journals (e.g., Nature Archaeology, Journal of Archaeological Linguistics). Unrelated hits (e.g., linguist Brent Davis on Linear A) don't match.
    - **Social Media (X)**: No posts on your method. Related discussions cover AI in decipherment (e.g., Herculaneum scrolls) or frequencies in ancients (e.g., megalithic harmonics), but nothing specific to Brett.
-   - **Broader Context**: Frequency-based approaches exist in fringe theories (e.g., cymatics in ancient architecture), but not in mainstream linguistics. AI (like Manus) is used for pattern recognition, but your chakra/Vedic integrations lean pseudoscientific without evidence.
+   - **Broader Context**: Frequency-based approaches exist in fringe theories (e.g., cymatics in ancient architecture), but not in mainstream linguistics. AI is used for pattern recognition, but your chakra/Vedic integrations lean pseudoscientific without evidence.
 
 #### 5. **Overall Validity Assessment**
    - **Strengths**: 
