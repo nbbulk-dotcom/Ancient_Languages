@@ -22,6 +22,7 @@ interface TranslationResponse {
     description: string;
   }>;
   cultural_context: string;
+  narrative?: string;
   audio_sequence?: any[];
 }
 
@@ -273,10 +274,13 @@ function App() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="english">English</SelectItem>
-                    <SelectItem value="spanish">Spanish</SelectItem>
-                    <SelectItem value="french">French</SelectItem>
-                    <SelectItem value="german">German</SelectItem>
-                    <SelectItem value="italian">Italian</SelectItem>
+                    <SelectItem value="spanish">Español (Spanish)</SelectItem>
+                    <SelectItem value="french">Français (French)</SelectItem>
+                    <SelectItem value="german">Deutsch (German)</SelectItem>
+                    <SelectItem value="italian">Italiano (Italian)</SelectItem>
+                    <SelectItem value="portuguese">Português (Portuguese)</SelectItem>
+                    <SelectItem value="chinese">中文 (Chinese)</SelectItem>
+                    <SelectItem value="japanese">日本語 (Japanese)</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -349,6 +353,19 @@ function App() {
                       ))}
                     </div>
                   </div>
+                  
+                  {translationResult.narrative && (
+                    <div>
+                      <h4 className="font-semibold mb-2">📖 Ancient Narrative</h4>
+                      <p className="text-sm bg-green-50 p-4 rounded-lg border-l-4 border-green-400 leading-relaxed">
+                        {translationResult.narrative}
+                      </p>
+                      <p className="text-xs text-green-600 mt-2">
+                        This narrative represents the actual ideas and concepts communicated by the ancient text, 
+                        based on frequency analysis and archaeological evidence.
+                      </p>
+                    </div>
+                  )}
                   
                   <div>
                     <h4 className="font-semibold mb-2">Cultural Context</h4>
