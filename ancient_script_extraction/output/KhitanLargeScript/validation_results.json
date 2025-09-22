@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "details": {
+    "glyph_count": 512,
+    "expected_minimum": 500,
+    "unicode_coverage_pct": 100.0,
+    "primary_source_present": true
+  },
+  "recommendations": []
+}
