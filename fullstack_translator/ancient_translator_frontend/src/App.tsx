@@ -34,6 +34,25 @@ interface ScriptInfo {
   sample_characters: string[];
 }
 
+interface OCRResponse {
+  extracted_text: string;
+  script_type: string;
+  processing_method: string;
+  confidence: number;
+  image_dimensions: { width: number; height: number };
+}
+
+interface ArtifactResponse {
+  script_type: string;
+  classification_confidence: number;
+  regions_processed: number;
+  extracted_text: string;
+  translation: string;
+  processing_method: string;
+  structure_preserved: boolean;
+  image_dimensions: { width: number; height: number };
+}
+
 function App() {
   const [textInput, setTextInput] = useState('');
   const [selectedScript, setSelectedScript] = useState('linear_a');
@@ -43,6 +62,10 @@ function App() {
   const [translationResult, setTranslationResult] = useState<TranslationResponse | null>(null);
   const [scriptsInfo, setScriptsInfo] = useState<Record<string, ScriptInfo>>({});
   const [error, setError] = useState<string | null>(null);
+  const [ocrResult, setOcrResult] = useState<OCRResponse | null>(null);
+  const [isOcrLoading, setIsOcrLoading] = useState(false);
+  const [artifactResult, setArtifactResult] = useState<ArtifactResponse | null>(null);
+  const [isArtifactLoading, setIsArtifactLoading] = useState(false);
 
   const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://app-onwlswoz.fly.dev';
 
@@ -142,6 +165,71 @@ function App() {
         setError('Please select a valid image file (JPG, PNG, GIF)');
         setSelectedFile(null);
       }
+    }
+  };
+
+  const handleOCRConversion = async () => {
+    if (!selectedFile) {
+      setError('Please select an image file');
+      return;
+    }
+
+    setIsOcrLoading(true);
+    setError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      formData.append('script_type', selectedScript);
+
+      const response = await fetch(`${API_BASE_URL}/api/ocr/convert`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`OCR conversion failed: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log('OCR response:', result);
+      setOcrResult(result);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'OCR conversion failed');
+    } finally {
+      setIsOcrLoading(false);
+    }
+  };
+
+  const handleArtifactProcessing = async () => {
+    if (!selectedFile) {
+      setError('Please select an image file');
+      return;
+    }
+
+    setIsArtifactLoading(true);
+    setError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+
+      const response = await fetch(`${API_BASE_URL}/api/artifact/process`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Artifact processing failed: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log('Artifact processing response:', result);
+      setArtifactResult(result);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Artifact processing failed');
+    } finally {
+      setIsArtifactLoading(false);
     }
   };
 
@@ -267,6 +355,42 @@ function App() {
                       </>
                     )}
                   </Button>
+                  
+                  <Button 
+                    onClick={handleOCRConversion} 
+                    disabled={isOcrLoading || !selectedFile}
+                    className="w-full bg-blue-600 hover:bg-blue-700 mt-2"
+                  >
+                    {isOcrLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Converting to Characters...
+                      </>
+                    ) : (
+                      <>
+                        <FileText className="mr-2 h-4 w-4" />
+                        Convert Image to Characters
+                      </>
+                    )}
+                  </Button>
+                  
+                  <Button 
+                    onClick={handleArtifactProcessing} 
+                    disabled={isArtifactLoading || !selectedFile}
+                    className="w-full bg-purple-600 hover:bg-purple-700 mt-2"
+                  >
+                    {isArtifactLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Processing Whole Artifact...
+                      </>
+                    ) : (
+                      <>
+                        <FileText className="mr-2 h-4 w-4" />
+                        Process Whole Artifact
+                      </>
+                    )}
+                  </Button>
                 </TabsContent>
               </Tabs>
               
@@ -309,6 +433,72 @@ function App() {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              {ocrResult && (
+                <div className="space-y-4 mb-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                  <h3 className="font-semibold text-lg mb-2 text-blue-800">📄 OCR Character Extraction</h3>
+                  <div>
+                    <Label className="text-sm font-medium">Extracted Text</Label>
+                    <p className="text-sm bg-white p-3 rounded border font-mono">{ocrResult.extracted_text}</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label className="text-sm font-medium">Script Type</Label>
+                      <p className="text-sm">{ocrResult.script_type}</p>
+                    </div>
+                    <div>
+                      <Label className="text-sm font-medium">OCR Confidence</Label>
+                      <p className="text-sm">{(ocrResult.confidence * 100).toFixed(1)}%</p>
+                    </div>
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium">Processing Method</Label>
+                    <p className="text-xs text-blue-600">{ocrResult.processing_method}</p>
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium">Image Dimensions</Label>
+                    <p className="text-xs">{ocrResult.image_dimensions.width} × {ocrResult.image_dimensions.height} pixels</p>
+                  </div>
+                </div>
+              )}
+
+              {artifactResult && (
+                <div className="space-y-4 mb-6 p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
+                  <h3 className="font-semibold text-lg mb-2 text-purple-800">🏺 Whole Artifact Processing</h3>
+                  <div>
+                    <Label className="text-sm font-medium">Extracted Text (Structure Preserved)</Label>
+                    <p className="text-sm bg-white p-3 rounded border font-mono whitespace-pre-wrap">{artifactResult.extracted_text}</p>
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium">Brett Method Translation</Label>
+                    <p className="text-sm bg-white p-3 rounded border">{artifactResult.translation}</p>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div>
+                      <Label className="text-sm font-medium">Script Type</Label>
+                      <p className="text-sm">{artifactResult.script_type}</p>
+                    </div>
+                    <div>
+                      <Label className="text-sm font-medium">Classification Confidence</Label>
+                      <p className="text-sm">{(artifactResult.classification_confidence * 100).toFixed(1)}%</p>
+                    </div>
+                    <div>
+                      <Label className="text-sm font-medium">Regions Processed</Label>
+                      <p className="text-sm">{artifactResult.regions_processed}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium">Processing Method</Label>
+                    <p className="text-xs text-purple-600">{artifactResult.processing_method}</p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Label className="text-sm font-medium">Structure Preserved:</Label>
+                    <span className={`text-xs px-2 py-1 rounded ${artifactResult.structure_preserved ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                      {artifactResult.structure_preserved ? 'Yes' : 'No'}
+                    </span>
+                  </div>
+                </div>
+              )}
+              
               {translationResult ? (
                 <div className="space-y-4">
                   <div>

@@ -21,6 +21,15 @@ from .analysis_tools.linear_a_frequency_calculator import LinearAFrequencyCalcul
 from .analysis_tools.khitan_frequency_analyzer import KhitanFrequencyAnalyzer
 from .analysis_tools.proto_elamite_angular_analyzer import ProtoElamiteAngularAnalyzer
 from .analysis_tools.indus_vedic_analyzer import IndusVedicAnalyzer
+from .specialized_ocr import (
+    ocr_linear_a_subroutine,
+    ocr_khitan_large_subroutine,
+    ocr_proto_elamite_subroutine,
+    ocr_indus_valley_subroutine,
+    enhanced_image_preprocessing
+)
+from .error_logger import error_logger
+from .artifact_processor import artifact_processor
 
 app = FastAPI(
     title="Ancient Script Universal Translator",
@@ -66,6 +75,23 @@ class ScriptInfo(BaseModel):
     methodology: str
     confidence_range: str
     sample_characters: List[str]
+
+class OCRResponse(BaseModel):
+    extracted_text: str
+    script_type: str
+    processing_method: str
+    confidence: float
+    image_dimensions: Dict[str, int]
+
+class ArtifactResponse(BaseModel):
+    script_type: str
+    classification_confidence: float
+    regions_processed: int
+    extracted_text: str
+    translation: str
+    processing_method: str
+    structure_preserved: bool
+    image_dimensions: Dict[str, int]
 
 @app.get("/healthz")
 async def healthz():
@@ -185,6 +211,97 @@ async def translate_image(file: UploadFile = File(...), target_language: str = "
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Image translation error: {str(e)}")
+
+@app.post("/api/ocr/convert", response_model=OCRResponse)
+async def convert_image_to_characters(file: UploadFile = File(...), script_type: str = "auto"):
+    """Convert image to characters using script-specific OCR processing"""
+    try:
+        image_data = await file.read()
+        image = Image.open(io.BytesIO(image_data))
+        width, height = image.size
+        
+        error_logger.logger.info(f"OCR conversion started - File: {file.filename}, Size: {width}x{height}, Script: {script_type}")
+        
+        if script_type == "auto":
+            aspect_ratio = height / width
+            if aspect_ratio > 1.5:
+                script_type = "khitan"
+            elif width > 300:
+                script_type = "linear_a"
+            else:
+                script_type = "indus_valley"
+        
+        if script_type == "linear_a":
+            extracted_text, processed_image = ocr_linear_a_subroutine(image_data)
+            processing_method = "Linear A LTR Flow with CLAHE Enhancement"
+        elif script_type == "khitan":
+            extracted_text, processed_image = ocr_khitan_large_subroutine(image_data)
+            processing_method = "Khitan Vertical R-to-L Columns with Rotation Detection"
+        elif script_type == "proto_elamite":
+            extracted_text, processed_image = ocr_proto_elamite_subroutine(image_data)
+            processing_method = "Proto-Elamite RTL Horizontal with Line Reversal"
+        elif script_type == "indus_valley":
+            extracted_text, processed_image = ocr_indus_valley_subroutine(image_data)
+            processing_method = "Indus Valley RTL Sequences with Seal Optimization"
+        else:
+            extracted_text, processed_image = enhanced_image_preprocessing(image_data)
+            processing_method = "Enhanced General Preprocessing with Bilateral Filtering"
+        
+        confidence = 0.85 if len(extracted_text.strip()) > 10 else 0.65
+        
+        error_logger.logger.info(f"OCR conversion successful - Script: {script_type}, Confidence: {confidence}, Text length: {len(extracted_text)}")
+        
+        return OCRResponse(
+            extracted_text=extracted_text,
+            script_type=script_type,
+            processing_method=processing_method,
+            confidence=confidence,
+            image_dimensions={"width": width, "height": height}
+        )
+        
+    except Exception as e:
+        image_info = {
+            "filename": file.filename,
+            "content_type": file.content_type,
+            "size": f"{width}x{height}" if 'width' in locals() else "unknown"
+        }
+        error_logger.log_ocr_error(script_type, str(e), image_info)
+        raise HTTPException(status_code=500, detail=f"OCR conversion error: {str(e)}")
+
+@app.post("/api/artifact/process", response_model=ArtifactResponse)
+async def process_whole_artifact(file: UploadFile = File(...)):
+    """Process entire tablet/artifact with proper order and structure preservation"""
+    try:
+        image_data = await file.read()
+        image = Image.open(io.BytesIO(image_data))
+        width, height = image.size
+        
+        error_logger.logger.info(f"Whole artifact processing started - File: {file.filename}, Size: {width}x{height}")
+        
+        result = artifact_processor.process_whole_artifact(image_data)
+        
+        # Log successful processing
+        error_logger.logger.info(f"Artifact processing successful - Script: {result['script_type']}, Regions: {result['regions_processed']}")
+        
+        return ArtifactResponse(
+            script_type=result['script_type'],
+            classification_confidence=result['classification_confidence'],
+            regions_processed=result['regions_processed'],
+            extracted_text=result['extracted_text'],
+            translation=result['translation'],
+            processing_method=result['processing_method'],
+            structure_preserved=result['structure_preserved'],
+            image_dimensions={"width": width, "height": height}
+        )
+        
+    except Exception as e:
+        image_info = {
+            "filename": file.filename,
+            "content_type": file.content_type,
+            "size": f"{width}x{height}" if 'width' in locals() else "unknown"
+        }
+        error_logger.log_error("ARTIFACT_PROCESSING_ERROR", str(e), image_info)
+        raise HTTPException(status_code=500, detail=f"Artifact processing error: {str(e)}")
 
 @app.post("/api/scripts/detect")
 async def detect_script(text: str):
