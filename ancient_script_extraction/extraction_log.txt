@@ -1,0 +1,11 @@
+{"timestamp": "2025-09-22T18:05:20.151130Z", "level": "ERROR", "message": "HTTP GET failed: https://sigla.phis.me/api/signs - 404 Client Error: Not Found for url: https://sigla.phis.me/api/signs"}
+{"timestamp": "2025-09-22T18:05:22.646542Z", "level": "ERROR", "message": "Retry failed: https://sigla.phis.me/api/signs - 404 Client Error: Not Found for url: https://sigla.phis.me/api/signs"}
+{"timestamp": "2025-09-22T18:05:22.649284Z", "level": "INFO", "message": "Saved JSON -> ./output/LinearA/LinearA_complete_glyphs.json"}
+{"timestamp": "2025-09-22T18:05:22.649569Z", "level": "INFO", "message": "Saved JSON -> ./output/LinearA/validation_results.json"}
+{"timestamp": "2025-09-22T18:05:23.212101Z", "level": "INFO", "message": "Saved JSON -> ./output/KhitanLargeScript/KhitanLargeScript_complete_glyphs.json"}
+{"timestamp": "2025-09-22T18:05:23.218782Z", "level": "INFO", "message": "Saved CSV -> ./output/KhitanLargeScript/KhitanLargeScript_complete_glyphs.csv"}
+{"timestamp": "2025-09-22T18:05:23.219131Z", "level": "INFO", "message": "Saved JSON -> ./output/KhitanLargeScript/validation_results.json"}
+{"timestamp": "2025-09-22T18:05:26.143801Z", "level": "INFO", "message": "Saved JSON -> ./output/ProtoElamite/ProtoElamite_complete_glyphs.json"}
+{"timestamp": "2025-09-22T18:05:26.144065Z", "level": "INFO", "message": "Saved JSON -> ./output/ProtoElamite/validation_results.json"}
+{"timestamp": "2025-09-22T18:05:26.263844Z", "level": "INFO", "message": "Saved JSON -> ./output/IndusValleyScript/IndusValleyScript_complete_glyphs.json"}
+{"timestamp": "2025-09-22T18:05:26.264109Z", "level": "INFO", "message": "Saved JSON -> ./output/IndusValleyScript/validation_results.json"}

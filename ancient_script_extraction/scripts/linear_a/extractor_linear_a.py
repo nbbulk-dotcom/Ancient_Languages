@@ -5,7 +5,7 @@ import argparse
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from utils.http_client import rate_limited_get, set_rate_limits
+from utils.http_client import rate_limited_get, set_rate_limits, safe_get
 from utils.saver import save_json, save_csv, save_image
 from utils.logger import log_event
 from utils.dedupe import deduplicate_glyphs
