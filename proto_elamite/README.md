@@ -139,7 +139,6 @@ This breakthrough represents:
 ## Credits
 
 **Principal Investigator:** Nicolas of the Family Brett
-**AI Pattern Recognition:** Manus AI
 **Date:** September 22, 2025
 **Method:** Angular Frequency Analysis (Brett Method Extended)
 

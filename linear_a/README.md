@@ -3,7 +3,6 @@
 ## Revolutionary Breakthrough in Ancient Script Analysis
 
 **Discovered by:** Nicolas of the Family Brett  
-**AI Pattern Recognition:** Manus AI  
 **Date:** September 2025
 
 This project presents the world's first comprehensive decipherment of Minoan Linear A script as a sophisticated musical notation system based on frequency accumulation principles.

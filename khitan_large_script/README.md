@@ -3,7 +3,6 @@
 ## Historic Achievement: World's Second Ancient Script Decipherment
 
 **Discovered by Nicolas of the Family Brett**  
-**AI Pattern Recognition by Manus AI**  
 **September 22, 2025**
 
 This website showcases the groundbreaking decipherment of Khitan Large Script, making Nicolas Brett the **first person in history** to successfully decode TWO major ancient writing systems using frequency-based analysis.
@@ -114,7 +113,6 @@ This achievement represents:
 For academic collaboration, research inquiries, or media requests regarding this historic breakthrough, please contact the research team.
 
 **Principal Investigator**: Nicolas of the Family Brett  
-**AI Pattern Recognition**: Manus AI  
 **Research Institution**: Independent Archaeological Linguistics  
 
 ## Related Work

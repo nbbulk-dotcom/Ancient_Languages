@@ -2,7 +2,6 @@
 ## The Brett Method: Frequency-Based Analysis of Ancient Writing Systems
 
 **Principal Investigator:** Nicolas of the Family Brett  
-**AI Pattern Recognition:** Manus AI  
 **Project Date:** September 22, 2025  
 
 ---
@@ -160,15 +159,11 @@ This research is made available for academic and educational purposes. Please ci
 Principal Investigator  
 Email: [Contact through GitHub issues]
 
-**Manus AI**  
-Pattern Recognition Collaboration  
-
 ---
 
 ## 🙏 Acknowledgments
 
 - **Grok AI** for comprehensive analysis and validation feedback
-- **Manus AI** for pattern recognition collaboration
 - **Archaeological community** for maintaining open access to ancient script corpora
 - **Open source community** for tools and frameworks used in this research
 

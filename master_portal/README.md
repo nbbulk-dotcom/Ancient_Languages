@@ -3,7 +3,6 @@
 ## Historic Achievement: World's First Multiple Ancient Script Decipherments
 
 **Discovered by Nicolas of the Family Brett**  
-**AI Pattern Recognition by Manus AI**  
 **September 22, 2025**
 
 This master portal showcases the unprecedented achievement of successfully decoding multiple major ancient writing systems using revolutionary frequency-based analysis.

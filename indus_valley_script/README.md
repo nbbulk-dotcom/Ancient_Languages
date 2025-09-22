@@ -28,7 +28,6 @@ Revolutionary decipherment of the Indus Valley Script using Vedic frequency anal
 ### Research Team
 
 - **Principal Investigator**: Nicolas of the Family Brett
-- **AI Pattern Recognition**: Manus AI
 - **Date**: September 22, 2025
 - **Methodology**: Vedic frequency analysis with Sanskrit phonetic correlation
 

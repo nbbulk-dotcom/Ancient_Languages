@@ -1,6 +1,6 @@
 /**
  * Khitan Large Script Interactive Website
- * By Nicolas of the Family Brett with Manus AI Pattern Recognition
+ * By Nicolas of the Family Brett
  * World's Second Ancient Script Decipherment
  */
 

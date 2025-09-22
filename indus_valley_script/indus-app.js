@@ -1,7 +1,7 @@
 /**
  * Indus Valley Script Decipherment Website
  * Interactive Audio and Visualization System
- * By Nicolas of the Family Brett with Manus AI pattern recognition
+ * By Nicolas of the Family Brett
  */
 
 // Audio Context for frequency generation
@@ -226,7 +226,7 @@ function downloadResearch(format) {
     const researchData = {
         title: "Indus Valley Script Decipherment: Vedic Frequency Analysis",
         author: "Nicolas of the Family Brett",
-        collaborator: "Manus AI Pattern Recognition",
+        collaborator: "Advanced Pattern Recognition",
         date: "September 22, 2025",
         methodology: "Vedic frequency analysis with Sanskrit phonetic correlation",
         success_rate: "88% confidence on 4,000+ inscriptions",
@@ -347,7 +347,7 @@ function generatePythonCode() {
     return `#!/usr/bin/env python3
 """
 Indus Valley Script Frequency Analyzer
-By Nicolas of the Family Brett with Manus AI pattern recognition
+By Nicolas of the Family Brett
 September 22, 2025
 """
 

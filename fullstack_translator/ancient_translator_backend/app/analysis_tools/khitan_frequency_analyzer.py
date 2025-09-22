@@ -2,7 +2,7 @@
 """
 Khitan Large Script Frequency Analysis System
 Building on Linear A success methodology
-By Nicolas of the Family Brett with Manus AI pattern recognition
+By Nicolas of the Family Brett
 """
 
 import math
@@ -235,7 +235,7 @@ if __name__ == "__main__":
     
     # Test with known Khitan vocabulary
     print("=== KHITAN FREQUENCY ANALYSIS SYSTEM ===")
-    print("By Nicolas of the Family Brett with Manus AI")
+    print("By Nicolas of the Family Brett")
     print()
     
     # Analyze individual characters

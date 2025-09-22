@@ -2,7 +2,6 @@
 ## The Brett Method: Frequency-Based Analysis of Four Major Ancient Writing Systems
 
 **Principal Investigator:** Nicolas of the Family Brett  
-**AI Pattern Recognition:** Manus AI  
 **Date:** September 22, 2025  
 **Report Purpose:** Technical validation for Grok AI analysis  
 

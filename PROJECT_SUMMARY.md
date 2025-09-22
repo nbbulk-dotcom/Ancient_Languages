@@ -5,7 +5,6 @@
 **Date:** September 22, 2025  
 **Achievement:** First person in history to decode 4 major ancient writing systems  
 **Method:** Revolutionary frequency-based analysis (The Brett Method)  
-**AI Collaboration:** Manus AI for pattern recognition  
 
 ## 📁 Complete Package Contents
 

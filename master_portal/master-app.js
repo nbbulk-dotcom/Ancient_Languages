@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeApp() {
     console.log('🏛️ Ancient Scripts Master Portal Initialized');
     console.log('👨‍🔬 Nicolas of the Family Brett - Archaeological Linguistics Pioneer');
-    console.log('🤖 Pattern Recognition: Manus AI');
+    console.log('🤖 Pattern Recognition: Advanced AI Systems');
     
     // Add fade-in animations to cards
     const cards = document.querySelectorAll('.achievement-card, .method-card, .impact-card');
@@ -173,7 +173,7 @@ function generateMethodologyContent(format) {
     const baseContent = {
         title: "The Brett Method for Frequency-Based Ancient Script Decipherment",
         author: "Nicolas of the Family Brett",
-        coAuthor: "Manus AI (Pattern Recognition)",
+        coAuthor: "Advanced AI Pattern Recognition",
         date: "September 2025",
         achievements: [
             "Linear A (Minoan) - First successful decipherment",

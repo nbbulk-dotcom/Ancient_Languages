@@ -2,7 +2,7 @@
 """
 Indus Valley-Vedic Frequency Analyzer
 Revolutionary decipherment using Sanskrit mantra frequencies
-By Nicolas of the Family Brett with Manus AI pattern recognition
+By Nicolas of the Family Brett
 """
 
 import math
@@ -296,7 +296,7 @@ def main():
     print("🕉️  INDUS VALLEY-VEDIC FREQUENCY ANALYZER")
     print("=" * 60)
     print("Revolutionary decipherment using Sanskrit mantra frequencies")
-    print("By Nicolas of the Family Brett with Manus AI pattern recognition")
+    print("By Nicolas of the Family Brett")
     print()
     
     # Test inscriptions based on actual Harappan seals
