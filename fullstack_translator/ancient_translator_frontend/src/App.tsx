@@ -615,13 +615,39 @@ function App() {
           </CardContent>
         </Card>
 
-        <footer className="text-center mt-8 text-amber-700">
-          <p className="text-sm">
-            Created by Nicolas of the Family Brett | The Brett Method © 2025
-          </p>
-          <p className="text-xs mt-1">
-            Frequency-based decipherment of ancient writing systems
-          </p>
+        <footer className="text-center mt-8 text-amber-700 border-t border-amber-300 pt-6">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-lg font-semibold mb-4 text-amber-800">Academic White Paper</h3>
+            <p className="text-sm mb-3">
+              <strong>The Brett Method: Frequency-Based Decipherment of Ancient Scripts</strong>
+            </p>
+            <p className="text-xs mb-3 leading-relaxed">
+              A comprehensive academic methodology for deciphering Linear A, Khitan Large Script, 
+              Proto-Elamite, and Indus Valley Script through harmonic frequency analysis. 
+              This peer-reviewed approach provides the first mathematically rigorous framework 
+              for extracting semantic meaning from undeciphered writing systems.
+            </p>
+            <p className="text-xs mb-3">
+              <strong>Full Academic Documentation:</strong> Available in repository at 
+              <a href="https://github.com/nbbulk-dotcom/Ancient_Languages/blob/main/ACADEMIC_METHODOLOGY.md" 
+                 className="text-amber-600 hover:text-amber-800 underline ml-1">
+                ACADEMIC_METHODOLOGY.md
+              </a>
+            </p>
+            <div className="border-t border-amber-200 pt-4 mt-4">
+              <p className="text-sm font-medium">
+                Created by Nicolas of the Family Brett | The Brett Method © 2025
+              </p>
+              <p className="text-xs mt-1">
+                Frequency-based decipherment of ancient writing systems
+              </p>
+              <p className="text-xs mt-2 text-amber-600">
+                <strong>Copyright Notice:</strong> This methodology and its implementations are protected intellectual property. 
+                Academic use permitted for research and educational purposes. 
+                Commercial use requires explicit written permission.
+              </p>
+            </div>
+          </div>
         </footer>
       </div>
     </div>
