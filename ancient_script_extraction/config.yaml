@@ -1,36 +1,80 @@
-output_dir: ./output
-rate_limits:
-  default: 1.0
-  sigla.phis.me: 1.0
-  cdli.ucla.edu: 1.0
-expected_counts:
-  LinearA: 87
-  KhitanLargeScript: 500
-  ProtoElamite: 1000
-  IndusValleyScript: 400
+rate_limit: 1.0
+
+strict_response_check: true   # treat 200 + [] or 200 + missing fields as failure
+
+compatibility_policy:
+  enforce_version_consistency: true
+  python_version: "3.12"
+  poetry_lock_required: true
+  require_full_paths_in_docker: true
+  never_truncate_or_abbreviate: true
+  essential_first_step_checks:
+    - verify_python_version
+    - verify_poetry_lock_matches_pyproject
+    - verify_all_modules_have_compatible_versions
+    - verify_native_system_deps_installed_for_ocr
+    - run_integration_smoke_tests_before_release
+
 sources:
-  LinearA:
-    - name: SigLA
-      api: https://sigla.phis.me/api/
-    - name: GORILA
-      url: https://utexas.edu/research/pasp/publications/
-  KhitanLargeScript:
-    - name: Unicode
-      block: U+18B00-U+18CFF
-    - name: BabelStone
-      url: https://babelstone.co.uk/Khitan/
-  ProtoElamite:
-    - name: CDLI
-      api: https://cdli.ucla.edu/
-  IndusValleyScript:
-    - name: Harappa
-      url: https://www.harappa.com/script
-modifiers:
-  minoan_ceremonial_amplification: 1.26
+  linear_a:
+    id: sigla
+    base_url: "https://sigla.phis.me/api/"
+    endpoint: "signs"
+    expected_min_glyphs: 87
+    auth:
+      type: none
+      note: "If API returns 401/403, set auth.type=bearer and provide env var SIGLA_API_KEY"
+    fallback:
+      - gorila_pdf
+      - mnamon
+    post_fetch_checks:
+      - non_empty_array
+      - contains_expected_fields: ["glyph_id","image_url","unicode","provenance"]
+  proto_elamite:
+    id: cdli
+    base_url: "https://cdli.ucla.edu/api/"
+    query_examples: ["?q=proto-elamite", "?type=tablet"]
+    expected_min_glyphs: 1000
+    auth:
+      type: bearer
+      env_var: CDLI_API_KEY
+    fallback:
+      - cdli_bulk_dump
+      - museum_catalog_pdf
+    post_fetch_checks:
+      - non_empty_array
+      - contains_expected_fields: ["mcode","transcription","provenance"]
+  indus_valley:
+    id: harappa
+    base_url: "https://www.harappa.com/script"
+    expected_min_glyphs: 400
+    auth:
+      type: contact_required
+      contact_note: "Request dataset access or permission to scrape; scraping without permission is blocked/illegal"
+    fallback:
+      - mahadevan_pdf
+      - indus_museum_api
+    post_fetch_checks:
+      - non_empty_array
+      - contains_expected_fields: ["seal_id","image_url","hcode","site"]
+  khitan_large_script:
+    id: babelstone
+    base_url: "https://babelstone.co.uk/Khitan/"
+    expected_min_glyphs: 500
+    auth:
+      type: none
+    fallback:
+      - british_museum_images
+      - chinese_museum_images
+    post_fetch_checks:
+      - non_empty_array
+      - contains_expected_fields: ["unicode","image_url","provenance","frequency_count"]
+
 logging:
-  file: extraction_log.txt
-ocr:
-  prefer: easyocr
-  easyocr_languages: ['en']
-docker:
-  enable_tesseract: true
+  level: INFO
+  output_dir: /ancient_script_extraction/logs
+  write_error_artifact_on_failure: true
+
+artifacts:
+  error_filename: error.json
+  validation_results_dir: /ancient_script_extraction/output
